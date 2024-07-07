@@ -24,7 +24,7 @@ const PostDetails = () => {
 
   const fetchPost=async()=>{
     try{
-      const res= await axios.get(URL+"/api/posts/"+postId)
+      const res= await axios.get("https://blog-43pq.onrender.com/api/posts/"+postId)
       // console.log(res.data)
       setPost(res.data)
     }

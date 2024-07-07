@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserContext"
 import axios from "axios"
-import { URL } from "../url"
+//import { URL } from "../url"
 import HomePosts from "../components/HomePosts"
 import Loader from "../components/Loader"
 
@@ -21,7 +21,7 @@ const MyBlogs = () => {
   const fetchPosts=async()=>{
     setLoader(true)
     try{
-      const res=await axios.get(URL+"/api/posts/user/"+user._id)
+      const res=await axios.get("https://blog-43pq.onrender.com/api/posts/user/"+user._id)
       // console.log(res.data)
       setPosts(res.data)
       if(res.data.length===0){

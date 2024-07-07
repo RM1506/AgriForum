@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import {ImCross} from 'react-icons/im'
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
-import { URL } from '../url'
+//import { URL } from '../url'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
 
@@ -51,7 +51,7 @@ const CreatePost = () => {
           // console.log(data)
           //img upload
           try{
-            const imgUpload=await axios.post(URL+"/api/upload",data)
+            const imgUpload=await axios.post("https://blog-43pq.onrender.com/api/upload",data)
             // console.log(imgUpload.data)
           }
           catch(err){
@@ -61,7 +61,7 @@ const CreatePost = () => {
         //post upload
         // console.log(post)
         try{
-          const res=await axios.post(URL+"/api/posts/create",post,{withCredentials:true})
+          const res=await axios.post("https://blog-43pq.onrender.com/api/posts/create",post,{withCredentials:true})
           navigate("/posts/post/"+res.data._id)
           // console.log(res.data)
 
