@@ -2,7 +2,7 @@ import axios from "axios"
 import Footer from "../components/Footer"
 import HomePosts from "../components/HomePosts"
 import Navbar from "../components/Navbar"
-import { IF, URL } from "../url"
+//import { IF, URL } from "../url"
 import { useContext, useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import Loader from '../components/Loader'
@@ -22,7 +22,7 @@ const Home = () => {
   const fetchPosts=async()=>{
     setLoader(true)
     try{
-      const res=await axios.get(URL+"/api/posts/"+search)
+      const res=await axios.get("https://blog-43pq.onrender.com/api/posts/"+search)
       // console.log(res.data)
       setPosts(res.data)
       if(res.data.length===0){

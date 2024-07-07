@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"
 import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
 import axios from "axios"
-import { URL,IF } from "../url"
+//import { URL,IF } from "../url"
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../context/UserContext"
 import Loader from "../components/Loader"
@@ -36,7 +36,7 @@ const PostDetails = () => {
   const handleDeletePost=async ()=>{
 
     try{
-      const res=await axios.delete(URL+"/api/posts/"+postId,{withCredentials:true})
+      const res=await axios.delete("https://blog-43pq.onrender.com/api/posts/"+postId,{withCredentials:true})
       console.log(res.data)
       navigate("/")
 
@@ -55,7 +55,7 @@ const PostDetails = () => {
   const fetchPostComments=async()=>{
     setLoader(true)
     try{
-      const res=await axios.get(URL+"/api/comments/post/"+postId)
+      const res=await axios.get("https://blog-43pq.onrender.com/api/comments/post/"+postId)
       setComments(res.data)
       setLoader(false)
 
@@ -74,7 +74,7 @@ const PostDetails = () => {
   const postComment=async(e)=>{
     e.preventDefault()
     try{
-      const res=await axios.post(URL+"/api/comments/create",
+      const res=await axios.post("https://blog-43pq.onrender.com/api/comments/create",
       {comment:comment,author:user.username,postId:postId,userId:user._id},
       {withCredentials:true})
       
@@ -109,7 +109,7 @@ const PostDetails = () => {
        <p>{new Date(post.updatedAt).toString().slice(16,24)}</p>
        </div>
         </div>
-        <img src={IF+post.photo} className="w-full  mx-auto mt-8" alt=""/>
+        <img src={"https://blog-43pq.onrender.com/images/"+post.photo} className="w-full  mx-auto mt-8" alt=""/>
          <p className="mx-auto mt-8">{post.desc}</p>
          <div className="flex items-center mt-8 space-x-4 font-semibold">
           <p>Categories:</p>
