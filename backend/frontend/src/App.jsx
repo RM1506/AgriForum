@@ -9,8 +9,7 @@ import EditPost from './pages/EditPost'
 import Profile from './pages/Profile'
 import {  UserContextProvider } from './context/UserContext'
 import MyBlogs from './pages/MyBlogs'
-
-
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
 
@@ -28,7 +27,7 @@ const App = () => {
       <Route exact path="/myblogs/:id" element={<MyBlogs/>}/>
       <Route exact path="/profile/:id" element={<Profile/>}/>
       </Routes>
-    
+      <Toaster />
       </UserContextProvider>
   )
 }
