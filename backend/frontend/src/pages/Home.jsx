@@ -2,7 +2,7 @@ import axios from "axios"
 import Footer from "../components/Footer"
 import HomePosts from "../components/HomePosts"
 import Navbar from "../components/Navbar"
-//import { IF, URL } from "../url"
+import toast from "react-hot-toast";
 import { useContext, useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import Loader from '../components/Loader'
@@ -45,7 +45,12 @@ const Home = () => {
 
   },[search])
 
-
+  const handleLinkClick = (event) => {
+    if (!user) {
+      //event.preventDefault();
+      toast.error(" Please login to read the complete blog");
+    }
+  };
 
   return (
     
@@ -55,7 +60,7 @@ const Home = () => {
         {loader?<div className="h-[40vh] flex justify-center items-center"><Loader/></div>:!noResults?
         posts.map((post)=>(
           <>
-          <Link to={user?`/posts/post/${post._id}`:"/login"}>
+          <Link to={user?`/posts/post/${post._id}`:"/login"} onClick={handleLinkClick}>
           <HomePosts key={post._id} post={post}/>
           </Link>
           </>
