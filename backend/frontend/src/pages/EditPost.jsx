@@ -47,7 +47,7 @@ const EditPost = () => {
         const data=new FormData()
         data.append("file",file);
         try{
-          const imgUpload=await axios.post("https://blog-43pq.onrender.com/api/upload",data);
+          const uploadRes=await axios.post("https://blog-43pq.onrender.com/api/upload",data);
           post.photo = uploadRes.data.url;
         }
         catch(err){
