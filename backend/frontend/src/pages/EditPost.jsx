@@ -45,12 +45,7 @@ const EditPost = () => {
 
       if(file){
         const data=new FormData()
-        const filename=Date.now()+file.name
-        data.append("img",filename)
-        data.append("file",file)
-        post.photo=filename
-        // console.log(data)
-        //img upload
+        data.append("file",file);
         try{
           const imgUpload=await axios.post("https://blog-43pq.onrender.com/api/upload",data);
           post.photo = uploadRes.data.url;
