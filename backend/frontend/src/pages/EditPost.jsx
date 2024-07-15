@@ -52,11 +52,12 @@ const EditPost = () => {
         // console.log(data)
         //img upload
         try{
-          const imgUpload=await axios.post("https://blog-43pq.onrender.com/api/upload",data)
-          // console.log(imgUpload.data)
+          const imgUpload=await axios.post("https://blog-43pq.onrender.com/api/upload",data);
+          post.photo = uploadRes.data.url;
         }
         catch(err){
           console.log(err)
+          return; // exit if image upload fails
         }
       }
       //post upload

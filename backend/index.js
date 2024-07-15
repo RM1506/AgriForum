@@ -10,6 +10,7 @@ const authRoute=require('./routes/auth')
 const userRoute=require('./routes/users')
 const postRoute=require('./routes/posts')
 const commentRoute=require('./routes/comments')
+const cloudinary = require('cloudinary').v2;
 
 //database
 const connectDB=async()=>{
@@ -27,6 +28,12 @@ const connectDB=async()=>{
 
 //middlewares
 dotenv.config()
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(cors({origin:"https://blog-43pq.onrender.com",credentials:true}))
@@ -44,21 +51,24 @@ if(process.env.NODE_ENV==="production"){
     })
 }
 //image upload
-const storage=multer.diskStorage({
-    destination:(req,file,fn)=>{
-        fn(null,"images")
-    },
-    filename:(req,file,fn)=>{
-        fn(null,req.body.img)
-        // fn(null,"image1.jpg")
-    }
-})
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-const upload=multer({storage:storage})
-app.post("/api/upload",upload.single("file"),(req,res)=>{
-    // console.log(req.body)
-    res.status(200).json("Image has been uploaded successfully!")
-})
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    try {
+        cloudinary.uploader.upload_stream(
+            { folder: "your-folder-name" },
+            (error, result) => {
+                if (error) {
+                    return res.status(500).json({ error: error.message });
+                }
+                res.status(200).json({ url: result.secure_url });
+            }
+        ).end(req.file.buffer);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 app.listen(process.env.PORT,()=>{

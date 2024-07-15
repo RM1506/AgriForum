@@ -109,7 +109,7 @@ const PostDetails = () => {
        <p>{new Date(post.updatedAt).toString().slice(16,24)}</p>
        </div>
         </div>
-        <img src={"https://blog-43pq.onrender.com/images/"+post.photo} className="w-full  mx-auto mt-8" alt=""/>
+        <img src={post.photo} className="w-full  mx-auto mt-8" alt=""/>
          <p className="mx-auto mt-8">{post.desc}</p>
          <div className="flex items-center mt-8 space-x-4 font-semibold">
           <p>Categories:</p>
