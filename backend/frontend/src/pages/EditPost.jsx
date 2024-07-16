@@ -3,7 +3,6 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import {ImCross} from 'react-icons/im'
 import axios from "axios"
-//import { URL } from "../url"
 import { useNavigate, useParams } from "react-router-dom"
 import { UserContext } from "../context/UserContext"
 
@@ -24,7 +23,7 @@ const EditPost = () => {
         const res=await axios.get("https://blog-43pq.onrender.com/api/posts/"+postId)
         setTitle(res.data.title)
         setDesc(res.data.desc)
-        setFile(res.data.photo)
+        setFile(null)
         setCats(res.data.categories)
 
       }
