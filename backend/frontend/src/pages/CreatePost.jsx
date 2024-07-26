@@ -33,13 +33,15 @@ const CreatePost = () => {
     }
 
     const handleCreate=async (e)=>{
-        e.preventDefault()
-        const post={
-          title,
+      e.preventDefault();
+      const upperTitle = title.toUpperCase();
+    //  console.log("Uppercase Title: ", upperTitle);  // Debugging statement
+      const post = {
+          title: upperTitle,
           desc,
-          username:user.username,
-          userId:user._id,
-          categories:cats
+          username: user.username,
+          userId: user._id,
+          categories: cats
         }
 
         if(file){
