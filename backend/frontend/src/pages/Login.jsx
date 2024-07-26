@@ -47,8 +47,8 @@ const Login = () => {
   }
   return (
     <>
-    <div className="flex items-center justify-between px-6 md:px-[200px] py-4 pt-10">
-    <h1 className="text-lg md:text-xl font-extrabold"><Link to="/">Blog Market</Link></h1>
+    <div className="flex items-center justify-between px-6 md:px-[200px] py-4 pt-10  bg-green-800 text-white">
+    <h1 className="text-lg md:text-xl font-extrabold"><Link to="/">AgriForum</Link></h1>
     <h3><Link to="/register">Register</Link></h3>
     </div>
 <div className="w-full flex justify-center items-center h-[80vh] ">

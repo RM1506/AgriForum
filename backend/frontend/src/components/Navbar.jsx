@@ -18,7 +18,7 @@ const Navbar = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-green-600 text-white flex items-center justify-between px-6 md:px-[200px] py-4 z-50">
+    <div className="fixed top-0 left-0 w-full bg-green-800 text-white flex items-center justify-between px-6 md:px-[200px] py-4 z-50">
       <h1 className="text-lg md:text-xl font-extrabold">
         <Link to="/">AgriForum</Link>
       </h1>
@@ -41,7 +41,7 @@ const Navbar = () => {
         </div>
       )}
       <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
-        {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
+        {!user ?<h3><Link to="/login">Login</Link></h3> :<h3></h3> }
         {user ? (
           <div onClick={showMenu}>
             <p className="cursor-pointer relative hover:text-gray-300 transition-colors duration-300">
