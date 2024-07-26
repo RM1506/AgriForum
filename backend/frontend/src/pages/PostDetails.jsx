@@ -92,7 +92,7 @@ const PostDetails = () => {
 
   
   return (
-    <div>
+    <div className='pt-10'>
         <Navbar/>
         {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>:<div className="px-8 md:px-[200px] mt-8">
         <div className="flex justify-between items-center">
