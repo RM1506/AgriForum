@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         darkGreen: '#006400', // Custom dark green color
+        'custom-yellow': '#eae4e9',
       },
     },
   },
