@@ -26,9 +26,7 @@ const Footer = () => {
               <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8">
                 {section.items.map((item, i) => (
                   <li key={i} className="text-gray-300 hover:text-blue-400">
-                    <a href={`/${item.replace(/ & /, '-').replace(/ /g, '-').toLowerCase()}`}>
-                      {item}
-                    </a>
+                    {item}
                   </li>
                 ))}
               </ul>
