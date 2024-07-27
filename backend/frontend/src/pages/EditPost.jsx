@@ -79,7 +79,7 @@ const EditPost = () => {
     return (
         <div>
             <Navbar />
-            <div className="bg-white px-6 md:px-[200px] mt-8 pt-10 rounded-lg shadow-lg">
+            <div className="px-6 md:px-[200px] mt-8 pt-10">
                 <h1 className="font-bold md:text-2xl text-xl">Update a post</h1>
                 <form className="w-full flex flex-col space-y-4 md:space-y-8 mt-4">
                     <input
@@ -89,16 +89,11 @@ const EditPost = () => {
                         placeholder="Enter post title"
                         className="px-4 py-2 outline-none rounded-lg shadow-md border border-gray-300"
                     />
-                    <div className="relative w-full">
-                        <input
-                            onChange={(e) => setFile(e.target.files[0])}
-                            type="file"
-                            className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
-                        />
-                        <div className="px-4 py-2 bg-black text-white text-center rounded-lg shadow-md cursor-pointer">
-                            Choose file
-                        </div>
-                    </div>
+                    <input
+                        onChange={(e) => setFile(e.target.files[0])}
+                        type="file"
+                        className="px-4 py-2 outline-none rounded-lg shadow-md border border-gray-300"
+                    />
                     <div className="flex flex-col">
                         <div className="flex items-center space-x-4 md:space-x-8">
                             <input
