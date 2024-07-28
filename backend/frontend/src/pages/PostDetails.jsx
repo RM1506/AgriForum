@@ -97,7 +97,7 @@ const PostDetails = () => {
               </div>
             </div>
             <img src={post.photo} className="w-full h-auto max-w-full max-h-[60vh] object-contain rounded-lg mb-8" alt="" />
-            <p className="text-gray-800 leading-relaxed mb-8">{post.desc}</p>
+            <p className="text-gray-800 leading-relaxed mb-8" style={{ whiteSpace: 'pre-line' }}>{post.desc}</p>
             <div className="flex items-center space-x-4 font-semibold text-gray-700 mb-8">
               <p>Categories:</p>
               <div className="flex flex-wrap space-x-2">
