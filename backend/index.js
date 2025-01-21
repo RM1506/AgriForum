@@ -11,7 +11,7 @@ const userRoute=require('./routes/users')
 const postRoute=require('./routes/posts')
 const commentRoute=require('./routes/comments')
 const cloudinary = require('cloudinary').v2;
-
+const likeRoutes = require('./routes/like'); 
 //database
 const connectDB=async()=>{
     try{
