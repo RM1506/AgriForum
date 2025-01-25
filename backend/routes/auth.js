@@ -53,6 +53,9 @@ router.get("/logout", async (req, res) => {
 // REFETCH USER
 router.get("/refetch", (req, res) => {
     const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ message: "No token provided, user not authenticated" });
+    }
     jwt.verify(token, process.env.SECRET, {}, async (err, data) => {
         if (err) {
             return res.status(404).json(err);
