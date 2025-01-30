@@ -36,10 +36,17 @@ cloudinary.config({
 
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
+//const cors = require('cors');
+
+const allowedOrigins = [
+  'https://blog-43pq.onrender.com',
+  'https://agriforum.vercel.app'
+];
+
 app.use(cors({
-    origin: '*', // Allow all origins
-    credentials: true
-  }));
+  origin: allowedOrigins, // Array of allowed origins
+  credentials: true       // Allow credentials (e.g., cookies)
+}));
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
